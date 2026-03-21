@@ -3,14 +3,10 @@ import { ContactSection } from "@/components/contact-section";
 import { ExperienceSection } from "@/components/experience-section";
 import { Footer } from "@/components/footer";
 import { Hero } from "@/components/hero";
-import { ProjectsSection } from "@/components/projects-section";
 import { SiteHeader } from "@/components/site-header";
 import { SkillsSection } from "@/components/skills-section";
-import { getProjectSummaries } from "@/lib/mdx";
 
-export default async function HomePage() {
-  const projects = await getProjectSummaries();
-
+export default function HomePage() {
   return (
     <div className="relative overflow-hidden bg-background">
       <SiteHeader />
@@ -19,7 +15,6 @@ export default async function HomePage() {
         <AboutSection />
         <SkillsSection />
         <ExperienceSection />
-        <ProjectsSection projects={projects} />
         <ContactSection />
       </main>
       <Footer />

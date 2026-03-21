@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useInView, useReducedMotion } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export function Reveal({
   children,
@@ -14,13 +14,19 @@ export function Reveal({
   const ref = useRef(null);
   const isInView = useInView(ref, { amount, once });
   const prefersReducedMotion = useReducedMotion();
+  const [mounted, setMounted] = useState(false);
+  const shouldAnimate = mounted && !prefersReducedMotion;
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <motion.div
       ref={ref}
-      initial={prefersReducedMotion ? false : { opacity: 0, y }}
+      initial={shouldAnimate ? { opacity: 0, y } : false}
       animate={
-        prefersReducedMotion
+        !shouldAnimate
           ? { opacity: 1, y: 0 }
           : isInView
             ? { opacity: 1, y: 0 }

@@ -1,14 +1,21 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowDownRight, ArrowUpRight } from "lucide-react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { useEffect, useState } from "react";
 
 export function Hero() {
   const { scrollY } = useScroll();
   const prefersReducedMotion = useReducedMotion();
+  const [mounted, setMounted] = useState(false);
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+  const shouldAnimate = mounted && !prefersReducedMotion;
   const mediaY = useTransform(scrollY, [0, 500], [0, prefersReducedMotion ? 0 : 80]);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <section id="hero" className="px-4 pb-14 pt-6 md:px-8 md:pb-20 md:pt-8">
@@ -17,7 +24,7 @@ export function Hero() {
           <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
             <div>
               <motion.div
-                initial={prefersReducedMotion ? false : { opacity: 0, y: 30 }}
+                initial={shouldAnimate ? { opacity: 0, y: 30 } : false}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
                 className="flex flex-wrap items-center gap-8 text-sm text-muted"
@@ -37,7 +44,7 @@ export function Hero() {
               </motion.div>
 
               <motion.p
-                initial={prefersReducedMotion ? false : { opacity: 0, y: 30 }}
+                initial={shouldAnimate ? { opacity: 0, y: 30 } : false}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut", delay: 0.08 }}
                 className="mt-14 text-sm text-muted"
@@ -46,7 +53,7 @@ export function Hero() {
               </motion.p>
 
               <motion.h1
-                initial={prefersReducedMotion ? false : { opacity: 0, y: 30 }}
+                initial={shouldAnimate ? { opacity: 0, y: 30 } : false}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.85, ease: "easeOut", delay: 0.14 }}
                 className="mt-3 font-display text-[clamp(3.5rem,9vw,6.8rem)] leading-[0.9] tracking-[-0.05em] text-foreground"
@@ -55,7 +62,7 @@ export function Hero() {
               </motion.h1>
 
               <motion.p
-                initial={prefersReducedMotion ? false : { opacity: 0, y: 30 }}
+                initial={shouldAnimate ? { opacity: 0, y: 30 } : false}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.9, ease: "easeOut", delay: 0.22 }}
                 className="mt-7 max-w-xl text-2xl leading-tight text-foreground md:text-[2rem]"
@@ -65,7 +72,7 @@ export function Hero() {
               </motion.p>
 
               <motion.p
-                initial={prefersReducedMotion ? false : { opacity: 0, y: 30 }}
+                initial={shouldAnimate ? { opacity: 0, y: 30 } : false}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.95, ease: "easeOut", delay: 0.3 }}
                 className="mt-8 max-w-xl text-base leading-8 text-muted"
@@ -75,7 +82,7 @@ export function Hero() {
               </motion.p>
 
               <motion.div
-                initial={prefersReducedMotion ? false : { opacity: 0, y: 30 }}
+                initial={shouldAnimate ? { opacity: 0, y: 30 } : false}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: "easeOut", delay: 0.38 }}
                 className="mt-10 flex flex-wrap gap-4"
@@ -97,7 +104,7 @@ export function Hero() {
               </motion.div>
 
               <motion.div
-                initial={prefersReducedMotion ? false : { opacity: 0, y: 30 }}
+                initial={shouldAnimate ? { opacity: 0, y: 30 } : false}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: "easeOut", delay: 0.46 }}
                 className="mt-12 flex items-center gap-6 text-sm text-muted"
@@ -108,8 +115,8 @@ export function Hero() {
             </div>
 
             <motion.div
-              style={{ y: mediaY }}
-              initial={prefersReducedMotion ? false : { opacity: 0, y: 40 }}
+              style={{ y: shouldAnimate ? mediaY : 0 }}
+              initial={shouldAnimate ? { opacity: 0, y: 40 } : false}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.05, ease: "easeOut", delay: 0.18 }}
               className="relative"
@@ -119,13 +126,12 @@ export function Hero() {
                   Analytics Systems
                 </div>
                 <div className="relative aspect-[4/5] overflow-hidden rounded-[1.6rem] bg-[#e7e0d6]">
-                  <Image
-                    src="/michail-karnas-photo.png"
+                  <img
+                    src={`${basePath}/michail-karnas-photo.png`}
                     alt="Portrait of Michail Karnas"
-                    fill
-                    priority
-                    sizes="(min-width: 1024px) 34rem, 100vw"
-                    className="object-cover object-[52%_28%]"
+                    loading="eager"
+                    fetchPriority="high"
+                    className="h-full w-full object-cover object-[52%_28%]"
                   />
                 </div>
                 <div className="mt-5 flex items-center justify-between text-sm text-muted">

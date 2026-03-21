@@ -7,3 +7,10 @@ out
 site-current.png
 models/
 cv.pdf
+app.js
+index.html
+styles.css
+server.js
+download-ltx-supervisor.js
+launch-curl-download.js
+launch-hf-download.js

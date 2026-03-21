@@ -21,12 +21,17 @@ export function Footer() {
             ))}
           </div>
 
-          <Link
-            href="mailto:Michail_Karnas@hotmail.com"
-            className="font-display text-3xl tracking-[-0.04em] text-white md:text-4xl"
-          >
-            Michail_Karnas@hotmail.com
-          </Link>
+          <div className="md:text-right">
+            <p className="mb-2 text-[10px] uppercase tracking-[0.28em] text-white/45">
+              Contact
+            </p>
+            <Link
+              href="mailto:Michail_Karnas@hotmail.com"
+              className="font-display text-xl tracking-[-0.03em] text-white transition-colors hover:text-white/80 md:text-2xl"
+            >
+              Michail_Karnas@hotmail.com
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

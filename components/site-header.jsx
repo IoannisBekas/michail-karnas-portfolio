@@ -52,10 +52,10 @@ export function SiteHeader() {
             aria-label="Visit BI Solutions Group"
           >
             <img
-              src={`${basePath}/bi-solutions-group-mark.svg`}
+              src={`${basePath}/bi-solutions-transparent.png`}
               alt=""
               aria-hidden="true"
-              className="h-4 w-6 object-contain"
+              className="h-4.5 w-7 object-contain"
             />
             <span className="text-[0.98rem] font-semibold tracking-tight">
               BI Solutions Group

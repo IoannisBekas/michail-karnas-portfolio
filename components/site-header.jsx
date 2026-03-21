@@ -39,25 +39,25 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 px-4 pt-3 md:px-8 md:pt-5">
-      <div className="mx-auto mb-3 flex max-w-[1280px] justify-center">
-        <div className="inline-flex items-center gap-3 rounded-full border border-[#d7e1ee] bg-[rgba(248,250,253,0.92)] px-4 py-2 shadow-[0_10px_28px_rgba(74,108,144,0.08)] backdrop-blur-md">
-          <span className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#5e87b3] md:text-[11px]">
+      <div className="-mx-4 mb-4 border-y border-black/5 bg-[linear-gradient(180deg,rgba(243,247,251,0.95),rgba(251,252,253,0.82))] py-2 md:-mx-8 md:mb-5">
+        <div className="mx-auto flex max-w-[1280px] items-center justify-center gap-3 px-4 md:px-8">
+          <span className="text-[10px] font-semibold uppercase tracking-[0.32em] text-[#5f87b3] md:text-[11px]">
             Website by
           </span>
           <a
             href="https://bisolutions.group/"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-3 rounded-full border border-[#d7e1ee] bg-white px-3 py-2 text-[#0f4e8c] transition-transform hover:scale-[1.01]"
+            className="inline-flex items-center gap-2 rounded-full border border-[#d6e0ec] bg-white/88 px-3 py-1.5 text-[#14558f] shadow-[0_6px_14px_rgba(92,128,168,0.08)] backdrop-blur-sm transition-colors hover:border-[#bfd0e4] hover:text-[#0f4e8c]"
             aria-label="Visit BI Solutions Group"
           >
             <img
               src={`${basePath}/bi-solutions-group-mark.svg`}
               alt=""
               aria-hidden="true"
-              className="h-5 w-7 object-contain"
+              className="h-4 w-6 object-contain"
             />
-            <span className="text-sm font-semibold tracking-tight md:text-[1.05rem]">
+            <span className="text-[0.98rem] font-semibold tracking-tight">
               BI Solutions Group
             </span>
           </a>

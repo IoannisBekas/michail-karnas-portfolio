@@ -11,6 +11,7 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const prefersReducedMotion = useReducedMotion();
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
   useEffect(() => {
     const onScroll = () => {
@@ -38,6 +39,31 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 px-4 pt-3 md:px-8 md:pt-5">
+      <div className="mx-auto mb-3 flex max-w-[1280px] justify-center">
+        <div className="inline-flex items-center gap-3 rounded-full border border-[#d7e1ee] bg-[rgba(248,250,253,0.92)] px-4 py-2 shadow-[0_10px_28px_rgba(74,108,144,0.08)] backdrop-blur-md">
+          <span className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#5e87b3] md:text-[11px]">
+            Website by
+          </span>
+          <a
+            href="https://bisolutions.group/"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-3 rounded-full border border-[#d7e1ee] bg-white px-3 py-2 text-[#0f4e8c] transition-transform hover:scale-[1.01]"
+            aria-label="Visit BI Solutions Group"
+          >
+            <img
+              src={`${basePath}/bi-solutions-group-mark.svg`}
+              alt=""
+              aria-hidden="true"
+              className="h-5 w-7 object-contain"
+            />
+            <span className="text-sm font-semibold tracking-tight md:text-[1.05rem]">
+              BI Solutions Group
+            </span>
+          </a>
+        </div>
+      </div>
+
       <div
         className={`mx-auto flex max-w-[1280px] items-center justify-between rounded-[2rem] border px-3 py-2.5 transition-all duration-300 md:px-4 ${
           scrolled

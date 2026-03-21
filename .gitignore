@@ -1,0 +1,9 @@
+.next
+node_modules
+.env.local
+out
+*.log
+*.pid
+site-current.png
+models/
+cv.pdf

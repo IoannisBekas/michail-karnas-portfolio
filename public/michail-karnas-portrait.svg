@@ -1,0 +1,35 @@
+<svg width="1200" height="1500" viewBox="0 0 1200 1500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="1500" fill="#E9E1D5"/>
+  <circle cx="963" cy="210" r="152" fill="url(#paint0_radial)"/>
+  <circle cx="220" cy="1248" r="188" fill="url(#paint1_radial)"/>
+  <path d="M322 1457L480 1047H824L973 1457H322Z" fill="#EEE5D8" stroke="#202020" stroke-opacity="0.08"/>
+  <circle cx="646" cy="604" r="212" fill="#F5EFE7" stroke="#202020" stroke-opacity="0.08"/>
+  <path d="M458 564C510 506 575 477 653 477C723 477 787 503 846 555V729C846 820 772 894 681 894H618C527 894 453 820 453 729V587L458 564Z" fill="url(#paint2_linear)" stroke="#202020" stroke-opacity="0.08"/>
+  <path d="M500 565C536 519 591 496 665 496C734 496 791 521 834 571" stroke="#202020" stroke-opacity="0.5" stroke-width="8" stroke-linecap="round"/>
+  <path d="M550 708C579 731 616 742.5 661 742.5C706.333 742.5 743.667 731 773 708" stroke="#202020" stroke-opacity="0.55" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="587" cy="646" r="44" stroke="#202020" stroke-opacity="0.6" stroke-width="8"/>
+  <circle cx="731" cy="646" r="44" stroke="#202020" stroke-opacity="0.6" stroke-width="8"/>
+  <path d="M631 646H687" stroke="#202020" stroke-opacity="0.6" stroke-width="8" stroke-linecap="round"/>
+  <path d="M549 647H527" stroke="#202020" stroke-opacity="0.6" stroke-width="6" stroke-linecap="round"/>
+  <path d="M791 647H769" stroke="#202020" stroke-opacity="0.6" stroke-width="6" stroke-linecap="round"/>
+  <path d="M651 642L636 702H672" stroke="#202020" stroke-opacity="0.45" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M484 522C520 441 584 400 676 400C754 400 817 438 853 514" stroke="#202020" stroke-opacity="0.7" stroke-width="14" stroke-linecap="round"/>
+  <path d="M541 905H770L822 1062H489L541 905Z" fill="#F3EBE1" stroke="#202020" stroke-opacity="0.08"/>
+  <path d="M151 348L316 189" stroke="#9B3022" stroke-opacity="0.2" stroke-width="2"/>
+  <path d="M924 282L1047 359" stroke="#9B3022" stroke-opacity="0.18" stroke-width="2"/>
+  <path d="M923 1036L1099 979" stroke="#9B3022" stroke-opacity="0.15" stroke-width="2"/>
+  <defs>
+    <radialGradient id="paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(963 210) rotate(90) scale(152)">
+      <stop stop-color="#9B3022" stop-opacity="0.14"/>
+      <stop offset="1" stop-color="#9B3022" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="paint1_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(220 1248) rotate(90) scale(188)">
+      <stop stop-color="#A7B1BC" stop-opacity="0.42"/>
+      <stop offset="1" stop-color="#A7B1BC" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="paint2_linear" x1="649.5" y1="477" x2="649.5" y2="894" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8F3ED"/>
+      <stop offset="1" stop-color="#EDE3D5"/>
+    </linearGradient>
+  </defs>
+</svg>

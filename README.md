@@ -26,6 +26,20 @@ npm run build
 npm run start
 ```
 
+## GitHub Pages
+
+The repository includes a GitHub Actions workflow for GitHub Pages deployment.
+
+GitHub Pages builds use:
+
+- `STATIC_EXPORT=true`
+- `PAGES_BASE_PATH=/<repo-name>`
+
+That converts the site to a static export under `out/` and serves it from the
+repository path, for example:
+
+`https://ioannisbekas.github.io/michail-karnas-portfolio/`
+
 ## Environment variables
 
 Create `.env.local` and set:

@@ -53,13 +53,16 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="px-4 py-16 md:px-8 md:py-24">
+    <section
+      id="contact"
+      className="scroll-mt-28 px-4 py-16 md:scroll-mt-36 md:px-8 md:py-24"
+    >
       <div className="mx-auto max-w-[1280px]">
         <Reveal className="section-frame rounded-[2.25rem] px-6 py-12 md:px-10 md:py-16">
           <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
             <div>
               <p className="eyebrow accent-dot">Contact</p>
-              <h2 className="mt-5 max-w-md font-display text-4xl tracking-[-0.04em] text-foreground md:text-5xl">
+              <h2 className="mt-5 max-w-md font-display text-4xl tracking-[-0.04em] text-foreground text-balance md:text-5xl">
                 Got a vision? Let’s build the decision layer for it.
               </h2>
               <p className="mt-6 max-w-md text-base leading-8 text-muted">
@@ -70,11 +73,11 @@ export function ContactSection() {
               <div className="mt-10 space-y-3">
                 <Link
                   href="mailto:Michail_Karnas@hotmail.com"
-                  className="block text-2xl text-foreground hover:text-accent md:text-3xl"
+                  className="block break-words text-2xl text-foreground hover:text-accent md:text-3xl"
                 >
                   Michail_Karnas@hotmail.com
                 </Link>
-                <p className="text-base text-muted">+44 7519 273839</p>
+                <p className="break-words text-base text-muted">+44 7519 273839</p>
                 <p className="text-sm leading-7 text-muted">
                   LinkedIn, portfolio references, and certifications are available
                   on request.
@@ -145,7 +148,7 @@ export function ContactSection() {
                   whileTap={{ scale: 0.98 }}
                   type="submit"
                   disabled={status === "loading"}
-                  className="inline-flex items-center gap-2 rounded-full border border-black bg-foreground px-6 py-3 text-sm text-background disabled:cursor-not-allowed disabled:opacity-70"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-black bg-foreground px-6 py-3 text-sm text-background disabled:cursor-not-allowed disabled:opacity-70 md:w-auto"
                 >
                   {status === "loading" ? (
                     <LoaderCircle className="h-4 w-4 animate-spin" />

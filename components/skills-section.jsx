@@ -3,7 +3,10 @@ import { Reveal } from "@/components/reveal";
 
 export function SkillsSection() {
   return (
-    <section id="skills" className="px-4 py-8 md:px-8 md:py-12">
+    <section
+      id="skills"
+      className="scroll-mt-28 px-4 py-8 md:scroll-mt-36 md:px-8 md:py-12"
+    >
       <div className="mx-auto max-w-[1280px]">
         <Reveal className="section-frame rounded-[2rem] px-6 py-6 md:px-8">
           <div className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">

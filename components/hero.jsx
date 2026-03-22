@@ -18,7 +18,10 @@ export function Hero() {
   }, []);
 
   return (
-    <section id="hero" className="px-4 pb-14 pt-6 md:px-8 md:pb-20 md:pt-8">
+    <section
+      id="hero"
+      className="scroll-mt-28 px-4 pb-14 pt-6 md:scroll-mt-36 md:px-8 md:pb-20 md:pt-8"
+    >
       <div className="mx-auto max-w-[1280px]">
         <div className="device-shell px-6 pb-8 pt-14 md:px-12 md:pb-12 md:pt-20">
           <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
@@ -122,7 +125,7 @@ export function Hero() {
               className="relative"
             >
               <div className="relative rounded-[2rem] border border-black/10 bg-[#efe9e1] p-5 shadow-[0_24px_50px_rgba(20,20,20,0.08)]">
-                <div className="absolute left-8 top-8 rounded-full bg-white/88 px-4 py-2 text-xs uppercase tracking-[0.28em] text-muted">
+                <div className="absolute left-4 top-4 rounded-full bg-white/88 px-3 py-1.5 text-[11px] uppercase tracking-[0.28em] text-muted md:left-8 md:top-8 md:px-4 md:py-2 md:text-xs">
                   Analytics Systems
                 </div>
                 <div className="relative aspect-[4/5] overflow-hidden rounded-[1.6rem] bg-[#e7e0d6]">
@@ -134,9 +137,9 @@ export function Hero() {
                     className="h-full w-full object-cover object-[52%_28%]"
                   />
                 </div>
-                <div className="mt-5 flex items-center justify-between text-sm text-muted">
-                  <span>Product, Retail, Supply Chain, CRM, Fraud</span>
-                  <span className="rounded-full border border-black/10 bg-white px-3 py-1">
+                <div className="mt-5 flex flex-wrap items-center gap-3 text-sm text-muted md:flex-nowrap md:gap-2 md:justify-between">
+                  <span className="leading-tight">Product, Retail, Supply Chain, CRM, Fraud</span>
+                  <span className="rounded-full border border-black/10 bg-white px-3 py-1 text-center">
                     Portfolio
                   </span>
                 </div>

@@ -4,7 +4,10 @@ import { ProjectVisual } from "@/components/project-visual";
 
 export function AboutSection() {
   return (
-    <section id="about" className="px-4 py-16 md:px-8 md:py-24">
+    <section
+      id="about"
+      className="scroll-mt-28 px-4 py-16 md:scroll-mt-36 md:px-8 md:py-24"
+    >
       <div className="mx-auto max-w-[1280px]">
         <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
           <Reveal className="section-frame rounded-[2rem] p-8 md:p-10">

@@ -27,7 +27,7 @@ export function Footer() {
             </p>
             <Link
               href="mailto:Michail_Karnas@hotmail.com"
-              className="font-display text-xl tracking-[-0.03em] text-white transition-colors hover:text-white/80 md:text-2xl"
+              className="font-display text-xl tracking-[-0.03em] text-white transition-colors hover:text-white/80 break-words md:text-2xl"
             >
               Michail_Karnas@hotmail.com
             </Link>

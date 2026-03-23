@@ -56,10 +56,10 @@ export function PhotoPortfolioSection() {
   return (
     <section
       id="portfolio"
-      className="scroll-mt-28 px-4 py-16 md:scroll-mt-36 md:px-8 md:py-24"
+      className="scroll-mt-28 px-4 pb-16 pt-4 md:scroll-mt-36 md:px-8 md:pb-24 md:pt-8"
     >
       <div className="mx-auto max-w-[1280px]">
-        <div className="section-frame overflow-hidden rounded-[2.25rem] px-6 py-10 md:px-10 md:py-12">
+        <div className="section-frame overflow-hidden rounded-[2.25rem] px-6 py-8 md:px-10 md:py-10">
           <Reveal>
             <div className="grid gap-6 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
               <div>
@@ -79,7 +79,7 @@ export function PhotoPortfolioSection() {
             </div>
           </Reveal>
 
-          <Reveal delay={0.08} className="relative mt-10 md:mt-12">
+          <Reveal delay={0.08} className="relative mt-7 md:mt-8">
             <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-background via-background/70 to-transparent md:w-24" />
             <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-background via-background/70 to-transparent md:w-24" />
 

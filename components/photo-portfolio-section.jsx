@@ -1,3 +1,4 @@
+import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/reveal";
 import { photoPortfolio } from "@/lib/site-data";
 
@@ -11,23 +12,23 @@ const fallbackFrames = [
 
 const frameClasses = {
   landscape: {
-    width: "w-[320px] md:w-[460px]",
+    width: "w-[360px] md:w-[540px]",
     aspect: "aspect-[16/10]"
   },
   portrait: {
-    width: "w-[220px] md:w-[300px]",
+    width: "w-[250px] md:w-[360px]",
     aspect: "aspect-[4/5]"
   },
   poster: {
-    width: "w-[240px] md:w-[320px]",
+    width: "w-[270px] md:w-[380px]",
     aspect: "aspect-[3/4]"
   },
   story: {
-    width: "w-[200px] md:w-[260px]",
+    width: "w-[220px] md:w-[300px]",
     aspect: "aspect-[9/16]"
   },
   square: {
-    width: "w-[220px] md:w-[300px]",
+    width: "w-[250px] md:w-[360px]",
     aspect: "aspect-square"
   }
 };
@@ -50,6 +51,7 @@ function getFrameLayout(size) {
 
 export function PhotoPortfolioSection() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+  const tableauPortfolioUrl = "https://public.tableau.com/app/profile/michail.karnas/vizzes";
   const hasPhotos = photoPortfolio.length > 0;
   const frames = hasPhotos ? photoPortfolio : fallbackFrames;
 
@@ -76,6 +78,20 @@ export function PhotoPortfolioSection() {
                   ? "Infographics, editorial layouts, and mixed-format visual pieces rotate from left to right in one continuous strip."
                   : "The rail is in place and rotates automatically from left to right. It also supports mixed aspect ratios, so portrait, landscape, and tall infographic pieces can sit in the same rotating strip."}
               </p>
+
+              {hasPhotos ? (
+                <div className="lg:col-start-2">
+                  <a
+                    href={tableauPortfolioUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full border border-black bg-foreground px-5 py-3 text-sm text-background transition-transform hover:scale-[1.02]"
+                  >
+                    View Full Tableau Portfolio
+                    <ArrowUpRight className="h-4 w-4" />
+                  </a>
+                </div>
+              ) : null}
             </div>
           </Reveal>
 
@@ -95,30 +111,46 @@ export function PhotoPortfolioSection() {
                       const photoSrc = resolvePhotoSrc(basePath, item.src);
                       const layout = getFrameLayout(item.size);
                       const fitClass = item.fit === "cover" ? "object-cover" : "object-contain";
+                      const card = (
+                        <div className="rounded-[1.9rem] border border-black/8 bg-white/80 p-3 shadow-[0_18px_42px_rgba(18,18,18,0.06)] transition-transform hover:-translate-y-1">
+                          <div
+                            className={`relative ${layout.aspect} overflow-hidden rounded-[1.45rem] border border-white/70 bg-gradient-to-br ${item.tone || "from-[#f1ece4] via-[#faf7f1] to-[#e7ddcf]"}`}
+                          >
+                            {photoSrc ? (
+                              <img
+                                src={photoSrc}
+                                alt={item.alt || ""}
+                                className={`h-full w-full bg-[#f6f1ea] p-2 ${fitClass}`}
+                              />
+                            ) : (
+                              <>
+                                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.55),transparent_35%),linear-gradient(180deg,transparent,rgba(24,24,24,0.03))]" />
+                                <div className="absolute inset-5 rounded-[1.1rem] border border-black/[0.06] border-dashed" />
+                              </>
+                            )}
+                          </div>
+                        </div>
+                      );
 
                       return (
                         <article
                           key={`${item.id || item.src || index}-${copyIndex}`}
                           className={`${layout.width} shrink-0`}
                         >
-                          <div className="rounded-[1.9rem] border border-black/8 bg-white/80 p-3 shadow-[0_18px_42px_rgba(18,18,18,0.06)]">
-                            <div
-                              className={`relative ${layout.aspect} overflow-hidden rounded-[1.45rem] border border-white/70 bg-gradient-to-br ${item.tone || "from-[#f1ece4] via-[#faf7f1] to-[#e7ddcf]"}`}
+                          {hasPhotos ? (
+                            <a
+                              href={tableauPortfolioUrl}
+                              target="_blank"
+                              rel="noreferrer"
+                              aria-label={`Open Tableau portfolio from ${item.alt || "portfolio preview"}`}
+                              tabIndex={copyIndex === 1 ? -1 : 0}
+                              className="block"
                             >
-                              {photoSrc ? (
-                                <img
-                                  src={photoSrc}
-                                  alt={item.alt || ""}
-                                  className={`h-full w-full bg-[#f6f1ea] p-2 ${fitClass}`}
-                                />
-                              ) : (
-                                <>
-                                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.55),transparent_35%),linear-gradient(180deg,transparent,rgba(24,24,24,0.03))]" />
-                                  <div className="absolute inset-5 rounded-[1.1rem] border border-black/[0.06] border-dashed" />
-                                </>
-                              )}
-                            </div>
-                          </div>
+                              {card}
+                            </a>
+                          ) : (
+                            card
+                          )}
                         </article>
                       );
                     })}

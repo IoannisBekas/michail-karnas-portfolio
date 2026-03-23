@@ -151,7 +151,7 @@ textarea {
   display: flex;
   width: max-content;
   will-change: transform;
-  animation: photo-drift 30s linear infinite;
+  animation: photo-drift 52s linear infinite;
 }
 
 .photo-marquee:hover {

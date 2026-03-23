@@ -2,12 +2,35 @@ import { Reveal } from "@/components/reveal";
 import { photoPortfolio } from "@/lib/site-data";
 
 const fallbackFrames = [
-  { id: "frame-01", tone: "from-[#f3ede4] via-[#fbf7f1] to-[#e8ddd0]" },
-  { id: "frame-02", tone: "from-[#efe8df] via-[#faf6f0] to-[#e4d8ca]" },
-  { id: "frame-03", tone: "from-[#f5efe8] via-[#fcfaf6] to-[#ebe1d5]" },
-  { id: "frame-04", tone: "from-[#ede5da] via-[#f8f4ed] to-[#e2d7ca]" },
-  { id: "frame-05", tone: "from-[#f2ece3] via-[#fbf8f3] to-[#e7ddcf]" }
+  { id: "frame-01", size: "landscape", tone: "from-[#f3ede4] via-[#fbf7f1] to-[#e8ddd0]" },
+  { id: "frame-02", size: "story", tone: "from-[#efe8df] via-[#faf6f0] to-[#e4d8ca]" },
+  { id: "frame-03", size: "poster", tone: "from-[#f5efe8] via-[#fcfaf6] to-[#ebe1d5]" },
+  { id: "frame-04", size: "landscape", tone: "from-[#ede5da] via-[#f8f4ed] to-[#e2d7ca]" },
+  { id: "frame-05", size: "portrait", tone: "from-[#f2ece3] via-[#fbf8f3] to-[#e7ddcf]" }
 ];
+
+const frameClasses = {
+  landscape: {
+    width: "w-[320px] md:w-[460px]",
+    aspect: "aspect-[16/10]"
+  },
+  portrait: {
+    width: "w-[220px] md:w-[300px]",
+    aspect: "aspect-[4/5]"
+  },
+  poster: {
+    width: "w-[240px] md:w-[320px]",
+    aspect: "aspect-[3/4]"
+  },
+  story: {
+    width: "w-[200px] md:w-[260px]",
+    aspect: "aspect-[9/16]"
+  },
+  square: {
+    width: "w-[220px] md:w-[300px]",
+    aspect: "aspect-square"
+  }
+};
 
 function resolvePhotoSrc(basePath, src) {
   if (!src) {
@@ -21,9 +44,14 @@ function resolvePhotoSrc(basePath, src) {
   return `${basePath}${src}`;
 }
 
+function getFrameLayout(size) {
+  return frameClasses[size] || frameClasses.portrait;
+}
+
 export function PhotoPortfolioSection() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
-  const frames = photoPortfolio.length ? photoPortfolio : fallbackFrames;
+  const hasPhotos = photoPortfolio.length > 0;
+  const frames = hasPhotos ? photoPortfolio : fallbackFrames;
 
   return (
     <section
@@ -37,14 +65,16 @@ export function PhotoPortfolioSection() {
               <div>
                 <p className="eyebrow accent-dot">Photo Portfolio</p>
                 <h2 className="mt-5 max-w-md font-display text-4xl tracking-[-0.04em] text-foreground md:text-5xl">
-                  A moving wall reserved for visual work.
+                  {hasPhotos
+                    ? "A rotating wall of visual storytelling work."
+                    : "A moving wall reserved for visual work."}
                 </h2>
               </div>
 
               <p className="max-w-2xl text-base leading-8 text-muted">
-                The rail is in place and rotates automatically from left to right.
-                When photos are ready, drop them into the shared portfolio array and
-                this section will render them without changing the layout.
+                {hasPhotos
+                  ? "Infographics, editorial layouts, and mixed-format visual pieces rotate from left to right in one continuous strip."
+                  : "The rail is in place and rotates automatically from left to right. It also supports mixed aspect ratios, so portrait, landscape, and tall infographic pieces can sit in the same rotating strip."}
               </p>
             </div>
           </Reveal>
@@ -63,21 +93,23 @@ export function PhotoPortfolioSection() {
                   >
                     {frames.map((item, index) => {
                       const photoSrc = resolvePhotoSrc(basePath, item.src);
+                      const layout = getFrameLayout(item.size);
+                      const fitClass = item.fit === "cover" ? "object-cover" : "object-contain";
 
                       return (
                         <article
                           key={`${item.id || item.src || index}-${copyIndex}`}
-                          className="w-[220px] shrink-0 md:w-[300px]"
+                          className={`${layout.width} shrink-0`}
                         >
                           <div className="rounded-[1.9rem] border border-black/8 bg-white/80 p-3 shadow-[0_18px_42px_rgba(18,18,18,0.06)]">
                             <div
-                              className={`relative aspect-[4/5] overflow-hidden rounded-[1.45rem] border border-white/70 bg-gradient-to-br ${item.tone || "from-[#f1ece4] via-[#faf7f1] to-[#e7ddcf]"}`}
+                              className={`relative ${layout.aspect} overflow-hidden rounded-[1.45rem] border border-white/70 bg-gradient-to-br ${item.tone || "from-[#f1ece4] via-[#faf7f1] to-[#e7ddcf]"}`}
                             >
                               {photoSrc ? (
                                 <img
                                   src={photoSrc}
                                   alt={item.alt || ""}
-                                  className="h-full w-full object-cover"
+                                  className={`h-full w-full bg-[#f6f1ea] p-2 ${fitClass}`}
                                 />
                               ) : (
                                 <>

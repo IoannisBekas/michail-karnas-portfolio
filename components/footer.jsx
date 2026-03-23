@@ -33,6 +33,14 @@ export function Footer() {
             >
               Michail_Karnas@hotmail.com
             </Link>
+            <a
+              href="https://www.linkedin.com/in/michail-k-a4b76a318/"
+              target="_blank"
+              rel="noreferrer"
+              className="mt-3 inline-flex text-sm text-white/60 transition-colors hover:text-white"
+            >
+              LinkedIn
+            </a>
           </div>
         </div>
 

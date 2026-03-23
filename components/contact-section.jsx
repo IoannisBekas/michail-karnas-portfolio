@@ -79,9 +79,19 @@ export function ContactSection() {
                 </Link>
                 <p className="break-words text-base text-muted">+44 7519 273839</p>
                 <p className="text-sm leading-7 text-muted">
-                  LinkedIn, portfolio references, and certifications are available
-                  on request.
+                  LinkedIn, portfolio references, and certifications are now
+                  available directly.
                 </p>
+                <div className="flex flex-wrap gap-3 pt-2">
+                  <a
+                    href="https://www.linkedin.com/in/michail-k-a4b76a318/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="soft-pill inline-flex items-center rounded-full px-4 py-2 text-sm text-foreground hover:-translate-y-0.5 hover:border-black/20"
+                  >
+                    LinkedIn Profile
+                  </a>
+                </div>
               </div>
             </div>
 

@@ -63,7 +63,7 @@ export function PhotoPortfolioSection() {
       <div className="mx-auto max-w-[1280px]">
         <div className="section-frame overflow-hidden rounded-[2.25rem] px-6 py-8 md:px-10 md:py-10">
           <Reveal>
-            <div className="grid gap-6 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
+            <div className="grid gap-6 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
               <div>
                 <p className="eyebrow accent-dot">Photo Portfolio</p>
                 <h2 className="mt-5 max-w-md font-display text-4xl tracking-[-0.04em] text-foreground md:text-5xl">
@@ -73,14 +73,14 @@ export function PhotoPortfolioSection() {
                 </h2>
               </div>
 
-              <p className="max-w-2xl text-base leading-8 text-muted">
-                {hasPhotos
-                  ? "Infographics, editorial layouts, and mixed-format visual pieces rotate from left to right in one continuous strip."
-                  : "The rail is in place and rotates automatically from left to right. It also supports mixed aspect ratios, so portrait, landscape, and tall infographic pieces can sit in the same rotating strip."}
-              </p>
+              <div className="flex max-w-2xl flex-col gap-5">
+                <p className="text-base leading-8 text-muted">
+                  {hasPhotos
+                    ? "Infographics, editorial layouts, and mixed-format visual pieces rotate from left to right in one continuous strip."
+                    : "The rail is in place and rotates automatically from left to right. It also supports mixed aspect ratios, so portrait, landscape, and tall infographic pieces can sit in the same rotating strip."}
+                </p>
 
-              {hasPhotos ? (
-                <div className="lg:col-start-2">
+                {hasPhotos ? (
                   <a
                     href={tableauPortfolioUrl}
                     target="_blank"
@@ -90,8 +90,8 @@ export function PhotoPortfolioSection() {
                     View Full Tableau Portfolio
                     <ArrowUpRight className="h-4 w-4" />
                   </a>
-                </div>
-              ) : null}
+                ) : null}
+              </div>
             </div>
           </Reveal>
 

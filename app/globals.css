@@ -147,6 +147,33 @@ textarea {
   color: inherit;
 }
 
+.photo-marquee {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: photo-drift 30s linear infinite;
+}
+
+.photo-marquee:hover {
+  animation-play-state: paused;
+}
+
+.photo-marquee-track {
+  display: flex;
+  gap: 1rem;
+  padding-right: 1rem;
+}
+
+@keyframes photo-drift {
+  from {
+    transform: translate3d(-50%, 0, 0);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

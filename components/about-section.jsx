@@ -1,6 +1,5 @@
 import { ArrowUpRight, CircleCheck } from "lucide-react";
 import { Reveal } from "@/components/reveal";
-import { ProjectVisual } from "@/components/project-visual";
 
 export function AboutSection() {
   return (
@@ -30,8 +29,8 @@ export function AboutSection() {
             </div>
           </Reveal>
 
-          <div className="grid gap-4 md:grid-cols-2">
-            <Reveal className="section-frame rounded-[2rem] p-6 md:col-span-1">
+          <div className="grid gap-4">
+            <Reveal className="section-frame rounded-[2rem] p-6">
               <p className="eyebrow">Featured Metric</p>
               <div className="mt-8">
                 <p className="font-display text-6xl leading-none tracking-[-0.05em]">
@@ -44,11 +43,7 @@ export function AboutSection() {
               </div>
             </Reveal>
 
-            <Reveal delay={0.08} className="section-frame rounded-[2rem] p-4">
-              <ProjectVisual variant={0} compact />
-            </Reveal>
-
-            <Reveal delay={0.12} className="section-frame rounded-[2rem] p-6 md:col-span-2">
+            <Reveal delay={0.08} className="section-frame rounded-[2rem] p-6">
               <div className="grid gap-6 md:grid-cols-[0.8fr_1.2fr]">
                 <div>
                   <p className="eyebrow">Operator Notes</p>

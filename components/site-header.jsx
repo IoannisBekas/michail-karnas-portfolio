@@ -38,9 +38,9 @@ export function SiteHeader() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 px-4 pt-3 md:px-8 md:pt-5">
-      <div className="-mx-4 mb-4 border-y border-black/5 bg-[linear-gradient(180deg,rgba(243,247,251,0.95),rgba(251,252,253,0.82))] py-2 md:-mx-8 md:mb-5">
-        <div className="mx-auto flex max-w-[1280px] items-center justify-center gap-3 px-4 md:px-8">
+    <header className="sticky top-0 z-50 page-gutter pt-3 md:pt-5">
+      <div className="page-bleed mb-4 border-y border-black/5 bg-[linear-gradient(180deg,rgba(243,247,251,0.95),rgba(251,252,253,0.82))] py-2 md:mb-5">
+        <div className="page-gutter mx-auto flex max-w-[1280px] items-center justify-center gap-3">
           <span className="text-[10px] font-semibold uppercase tracking-[0.32em] text-[#5f87b3] md:text-[11px]">
             Website by
           </span>

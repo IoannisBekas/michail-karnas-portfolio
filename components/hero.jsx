@@ -20,7 +20,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="scroll-mt-28 px-4 pb-14 pt-6 md:scroll-mt-36 md:px-8 md:pb-20 md:pt-8"
+      className="scroll-mt-28 page-gutter pb-14 pt-6 md:scroll-mt-36 md:pb-20 md:pt-8"
     >
       <div className="mx-auto max-w-[1280px]">
         <div className="device-shell px-6 pb-8 pt-14 md:px-12 md:pb-12 md:pt-20">

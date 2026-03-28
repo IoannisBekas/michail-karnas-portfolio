@@ -13,7 +13,7 @@ export function ExperienceSection() {
   return (
     <section
       id="experience"
-      className="scroll-mt-28 px-4 py-16 md:scroll-mt-36 md:px-8 md:py-24"
+      className="scroll-mt-28 page-gutter py-16 md:scroll-mt-36 md:py-24"
     >
       <div className="mx-auto max-w-[1280px] section-frame rounded-[2.25rem] px-6 py-10 md:px-10 md:py-12">
         <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr]">

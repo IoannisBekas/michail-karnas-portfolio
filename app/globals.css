@@ -8,6 +8,13 @@
   --color-accent: 155 48 34;
   --color-foreground: 24 24 24;
   --color-muted: 108 108 108;
+  --page-gutter: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --page-gutter: 2rem;
+  }
 }
 
 html {
@@ -97,15 +104,19 @@ textarea {
   background: rgba(255, 252, 248, 0.8);
 }
 
+.accent-dot {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .accent-dot::before {
   content: "";
-  display: inline-block;
+  flex: none;
   width: 6px;
   height: 6px;
-  margin-right: 10px;
   border-radius: 999px;
   background: rgb(var(--color-accent));
-  vertical-align: middle;
 }
 
 .device-shell {
@@ -171,6 +182,63 @@ textarea {
 
   to {
     transform: translate3d(0, 0, 0);
+  }
+}
+
+@layer components {
+  .page-gutter {
+    padding-left: var(--page-gutter);
+    padding-right: var(--page-gutter);
+  }
+
+  .page-bleed {
+    margin-left: calc(var(--page-gutter) * -1);
+    margin-right: calc(var(--page-gutter) * -1);
+  }
+
+  .field-control {
+    min-height: 3rem;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  textarea.field-control {
+    min-height: 10.5rem;
+    resize: vertical;
+  }
+
+  .contact-detail {
+    display: block;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    color: rgb(var(--color-foreground));
+  }
+
+  .portfolio-feature-card {
+    width: 100%;
+    max-width: 40rem;
+    margin-right: auto;
+    overflow: hidden;
+    border: 1px solid rgba(24, 24, 24, 0.08);
+    border-radius: 1.75rem;
+    background: rgba(255, 252, 248, 0.92);
+    box-shadow: 0 18px 42px rgba(18, 18, 18, 0.06);
+  }
+
+  .portfolio-feature-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: top center;
+  }
+}
+
+@media (min-width: 768px) {
+  .contact-detail {
+    font-size: 1.25rem;
+    line-height: 1.875rem;
   }
 }
 

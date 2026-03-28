@@ -55,7 +55,7 @@ export function ContactSection() {
   return (
     <section
       id="contact"
-      className="scroll-mt-28 px-4 py-16 md:scroll-mt-36 md:px-8 md:py-24"
+      className="scroll-mt-28 page-gutter py-16 md:scroll-mt-36 md:py-24"
     >
       <div className="mx-auto max-w-[1280px]">
         <Reveal className="section-frame rounded-[2.25rem] px-6 py-12 md:px-10 md:py-16">
@@ -73,11 +73,13 @@ export function ContactSection() {
               <div className="mt-10 space-y-3">
                 <Link
                   href="mailto:Michail_Karnas@hotmail.com"
-                  className="block break-words text-2xl text-foreground hover:text-accent md:text-3xl"
+                  className="contact-detail break-words hover:text-accent"
                 >
                   Michail_Karnas@hotmail.com
                 </Link>
-                <p className="break-words text-base text-muted">+44 7519 273839</p>
+                <p className="break-words text-lg leading-7 text-muted md:text-xl">
+                  +44 7519 273839
+                </p>
                 <p className="text-sm leading-7 text-muted">
                   LinkedIn, portfolio references, and certifications are now
                   available directly.
@@ -87,7 +89,7 @@ export function ContactSection() {
                     href="https://www.linkedin.com/in/michail-k-a4b76a318/"
                     target="_blank"
                     rel="noreferrer"
-                    className="soft-pill inline-flex items-center rounded-full px-4 py-2 text-sm text-foreground hover:-translate-y-0.5 hover:border-black/20"
+                    className="soft-pill inline-flex items-center rounded-full px-4 py-2.5 text-base font-medium text-foreground hover:-translate-y-0.5 hover:border-black/20"
                   >
                     LinkedIn Profile
                   </a>
@@ -104,7 +106,7 @@ export function ContactSection() {
                   <input
                     id="name"
                     type="text"
-                    className="mt-2 w-full rounded-[1.2rem] border border-black/10 bg-white px-4 py-3 text-foreground"
+                    className="field-control mt-2 w-full rounded-[1.2rem] border border-black/10 bg-white text-foreground"
                     placeholder="Your name"
                     {...register("name", { required: "Name is required." })}
                   />
@@ -120,7 +122,7 @@ export function ContactSection() {
                   <input
                     id="email"
                     type="email"
-                    className="mt-2 w-full rounded-[1.2rem] border border-black/10 bg-white px-4 py-3 text-foreground"
+                    className="field-control mt-2 w-full rounded-[1.2rem] border border-black/10 bg-white text-foreground"
                     placeholder="you@company.com"
                     {...register("email", {
                       required: "Email is required.",
@@ -143,7 +145,7 @@ export function ContactSection() {
                 <textarea
                   id="message"
                   rows={6}
-                  className="mt-2 w-full rounded-[1.2rem] border border-black/10 bg-white px-4 py-3 text-foreground"
+                  className="field-control mt-2 w-full rounded-[1.2rem] border border-black/10 bg-white text-foreground"
                   placeholder="Tell me about the project, role, or challenge."
                   {...register("message", { required: "Message is required." })}
                 />

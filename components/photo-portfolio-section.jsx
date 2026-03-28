@@ -54,11 +54,16 @@ export function PhotoPortfolioSection() {
   const tableauPortfolioUrl = "https://public.tableau.com/app/profile/michail.karnas/vizzes";
   const hasPhotos = photoPortfolio.length > 0;
   const frames = hasPhotos ? photoPortfolio : fallbackFrames;
+  const featuredPreview =
+    frames.find((item) => item.src === "/portfolio/beef-industry-impact.png") ||
+    frames.find((item) => item.size === "landscape" && item.src) ||
+    frames.find((item) => item.src);
+  const featuredPreviewSrc = resolvePhotoSrc(basePath, featuredPreview?.src);
 
   return (
     <section
       id="portfolio"
-      className="scroll-mt-28 px-4 pb-16 pt-4 md:scroll-mt-36 md:px-8 md:pb-24 md:pt-8"
+      className="scroll-mt-28 page-gutter pb-16 pt-4 md:scroll-mt-36 md:pb-24 md:pt-8"
     >
       <div className="mx-auto max-w-[1280px]">
         <div className="section-frame overflow-hidden rounded-[2.25rem] px-6 py-8 md:px-10 md:py-10">
@@ -73,7 +78,7 @@ export function PhotoPortfolioSection() {
                 </h2>
               </div>
 
-              <div className="flex max-w-2xl flex-col gap-5">
+              <div className="flex max-w-2xl flex-col items-start gap-5">
                 <p className="text-base leading-8 text-muted">
                   {hasPhotos
                     ? "Infographics, editorial layouts, and mixed-format visual pieces rotate from left to right in one continuous strip."
@@ -85,7 +90,7 @@ export function PhotoPortfolioSection() {
                     href={tableauPortfolioUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full border border-black bg-foreground px-5 py-3 text-sm text-background transition-transform hover:scale-[1.02]"
+                    className="inline-flex items-center gap-2 self-start rounded-full border border-black bg-foreground px-5 py-3 text-sm text-background transition-transform hover:scale-[1.02]"
                   >
                     View Full Tableau Portfolio
                     <ArrowUpRight className="h-4 w-4" />
@@ -95,7 +100,28 @@ export function PhotoPortfolioSection() {
             </div>
           </Reveal>
 
-          <Reveal delay={0.08} className="relative mt-7 md:mt-8">
+          {featuredPreviewSrc ? (
+            <Reveal delay={0.08} className="mt-7 md:hidden">
+              <a
+                href={tableauPortfolioUrl}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`Open Tableau portfolio from ${featuredPreview?.alt || "featured portfolio preview"}`}
+                className="portfolio-feature-card block"
+              >
+                <img
+                  src={featuredPreviewSrc}
+                  alt={featuredPreview?.alt || ""}
+                  className="portfolio-feature-image"
+                />
+              </a>
+            </Reveal>
+          ) : null}
+
+          <Reveal
+            delay={0.08}
+            className={`relative mt-7 md:mt-8 ${featuredPreviewSrc ? "hidden md:block" : ""}`}
+          >
             <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-background via-background/70 to-transparent md:w-24" />
             <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-background via-background/70 to-transparent md:w-24" />
 
